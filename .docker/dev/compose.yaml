@@ -1,0 +1,63 @@
+version: '3'
+
+volumes:
+  postgres_data: {}
+
+services:
+  kora-web:
+    build:
+      context: ./nginx
+      dockerfile: ./Dockerfile
+    image: kora-web
+    container_name: kora-web
+    depends_on:
+      - kora-app
+      - kora-ui
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+  kora-app:
+    build:
+      context: ../..
+      dockerfile: .docker/dev/django/Dockerfile
+    image: kora-app
+    container_name: kora-app
+    platform: linux/x86_64
+    depends_on:
+      - kora-db
+    volumes:
+      - ../..:/app:z
+    env_file:
+      - django/env
+      - postgres/env
+    ports:
+      - "8000:8000"
+    command: /start-django
+
+  kora-db:
+    build:
+      context: ../..
+      dockerfile: .docker/dev/postgres/Dockerfile
+    image: kora-db
+    container_name: kora-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data:Z
+    env_file:
+      - postgres/env
+
+  kora-ui:
+    build:
+      context: ../..
+      dockerfile: .docker/dev/node/Dockerfile
+    ports:
+      - "3000:3000"
+    image: kora-ui
+    container_name: kora-ui
+    depends_on:
+      - kora-app
+    stdin_open: true
+    volumes:
+       - ../..:/app:z
+      #  - ./ui/node_modules:/app/node_modules
+

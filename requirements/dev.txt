@@ -1,0 +1,26 @@
+-r base.txt
+
+black==22.10.0
+coverage==6.5.0
+devtools==0.9.0
+django-coverage-plugin==2.0.3
+django-debug-toolbar==3.7.0
+django-extensions==3.2.1
+django-stubs==1.12.0
+factory-boy==3.2.1
+flake8==5.0.4
+flake8-isort==5.0.0
+ipdb==0.13.9
+loguru==0.6.0
+mypy==0.982
+pre-commit==2.20.0
+pycurl==7.45.1
+pylint-django==2.5.3
+pytest==7.1.3
+pytest-asyncio==0.19.0
+pytest-django==4.5.2
+pytest-sugar==0.9.5
+rich==12.6.0
+TxtStyle==1.1.2
+watchgod==0.8.2
+Werkzeug==2.2.2
