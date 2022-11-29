@@ -16,14 +16,12 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
   '& .FusePageSimple-sidebarContent': {},
 }));
 
-function ExamplePage(props) {
-  const { t } = useTranslation('examplePage');
-
+function PostPage(props) {
   return (
     <Root
       header={
         <div className="p-24">
-          <h4>Przykładowa strona</h4>
+          <h4>Post title here</h4>
         </div>
       }
       content={
@@ -36,4 +34,4 @@ function ExamplePage(props) {
   );
 }
 
-export default ExamplePage;
+export default PostPage;

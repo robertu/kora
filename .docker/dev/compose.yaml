@@ -52,6 +52,7 @@ services:
       dockerfile: .docker/dev/node/Dockerfile
     ports:
       - "3000:3000"
+      - "3001:3001"
     image: kora-ui
     container_name: kora-ui
     depends_on:
@@ -60,4 +61,5 @@ services:
     volumes:
        - ../..:/app:z
       #  - ./ui/node_modules:/app/node_modules
-
+    env_file:
+      - node/env
