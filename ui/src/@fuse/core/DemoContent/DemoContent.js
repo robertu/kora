@@ -3,17 +3,21 @@ import { memo } from 'react';
 function DemoContent() {
   return (
     <div>
+
+      <h1 className="py-16 font-semibold">Early Sunrise</h1>
+      <h4 className="pb-12 font-medium">Demo Content</h4>
       <img
         src="/assets/images/demo-content/morain-lake.jpg"
         alt="beach"
         style={{
           maxWidth: '640px',
           width: '100%',
+          float: "right",
+          margin: "20px",
+          marginTop: 0,
         }}
         className="rounded-6"
       />
-      <h1 className="py-16 font-semibold">Early Sunrise</h1>
-      <h4 className="pb-12 font-medium">Demo Content</h4>
       <p>
         One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in
         his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a

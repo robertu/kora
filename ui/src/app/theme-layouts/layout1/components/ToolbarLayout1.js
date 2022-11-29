@@ -12,6 +12,8 @@ import FullScreenToggle from '../../shared-components/FullScreenToggle';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 import NotificationPanelToggleButton from '../../shared-components/notificationPanel/NotificationPanelToggleButton';
 import NavigationShortcuts from '../../shared-components/NavigationShortcuts';
+import Typography from '@mui/material/Typography';
+
 import NavigationSearch from '../../shared-components/NavigationSearch';
 import NavbarToggleButton from '../../shared-components/NavbarToggleButton';
 import UserMenu from '../../shared-components/UserMenu';
@@ -38,7 +40,7 @@ function ToolbarLayout1(props) {
         position="static"
       >
         <Toolbar className="p-0 min-h-48 md:min-h-64">
-          <div className="flex flex-1 px-16">
+          <div className="flex flex-1 px-16 items-center h-full">
             {config.navbar.display && config.navbar.position === 'left' && (
               <>
                 <Hidden lgDown>
@@ -58,9 +60,9 @@ function ToolbarLayout1(props) {
               </>
             )}
 
-            <Hidden lgDown>
-              <NavigationShortcuts />
-            </Hidden>
+
+            <Typography variant="h6" className="p-4">Kora App</Typography>
+
           </div>
 
           <div className="flex items-center px-8 h-full overflow-x-auto">

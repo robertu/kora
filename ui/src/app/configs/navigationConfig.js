@@ -16,6 +16,14 @@ const navigationConfig = [
     icon: 'heroicons-outline:star',
     url: 'example',
   },
+  {
+    id: 'post-component',
+    title: 'Post',
+    translate: 'POST',
+    type: 'item',
+    icon: 'heroicons-outline:mail',
+    url: 'post',
+  },
 ];
 
 export default navigationConfig;

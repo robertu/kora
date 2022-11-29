@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createReducer from './rootReducer';
+console.log("process.env.NODE_ENV", process.env.NODE_ENV);
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
   module.hot.accept('./rootReducer', () => {

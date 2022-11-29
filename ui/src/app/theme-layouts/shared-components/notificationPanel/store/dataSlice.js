@@ -27,7 +27,7 @@ export const addNotification = createAsyncThunk(
   async (item) => {
     const response = await axios.post(`/api/notifications`, { ...item });
     const data = await response.data;
-
+    console.log({data});
     return data;
   }
 );
