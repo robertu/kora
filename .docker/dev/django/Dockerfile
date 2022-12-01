@@ -1,5 +1,6 @@
 ARG PYTHON_VERSION=3.11.0-bullseye
 
+
 # define an alias for the specfic python version used in this file.
 FROM python:${PYTHON_VERSION} as python
 
@@ -19,13 +20,13 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 COPY ./requirements .
 
 # Create Python Dependency and Sub-Dependency Wheels.
-RUN pip wheel --wheel-dir /app/wheels  \
-  -r ${BUILD_ENVIRONMENT}.txt
+RUN pip wheel --wheel-dir /wheels -r ${BUILD_ENVIRONMENT}.txt
 
 
 # Python 'run' stage
 FROM python as python-run-stage
-
+ARG UID=1000
+ARG GID=1000
 ARG BUILD_ENVIRONMENT=dev
 ARG APP_HOME=/app
 
@@ -33,7 +34,6 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV BUILD_ENV ${BUILD_ENVIRONMENT}
 
-WORKDIR ${APP_HOME}
 
 # Install required system dependencies
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -47,18 +47,19 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # All absolute dir copies ignore workdir instruction. All relative dir copies are wrt to the workdir instruction
 # copy python dependency wheels from python-build-stage
-COPY --from=python-build-stage /app/wheels  /wheels/
+COPY --from=python-build-stage /wheels  /wheels/
 
 # use wheels to install python dependencies
-RUN pip install --no-cache-dir --no-index --find-links=/wheels/ /wheels/* \
-	&& rm -rf /wheels/
+RUN pip install --no-cache-dir --no-index --find-links=/wheels/ /wheels/* && rm -rf /wheels/
 
 COPY ./.docker/dev/django/entrypoint /entrypoint
 
 COPY ./.docker/dev/django/start-* /
-#RUN chmod +x /start-*
-
+# RUN chmod +x /start-*
+RUN /usr/sbin/groupadd -g "${GID}" app  && /usr/sbin/useradd --create-home --no-log-init -u "${UID}" -g "${GID}" app
+WORKDIR ${APP_HOME}
+USER app
 # copy application code to WORKDIR
-COPY . ${APP_HOME}
+# COPY . ${APP_HOME} # <-- not needed in dev env
 
 ENTRYPOINT ["/entrypoint"]

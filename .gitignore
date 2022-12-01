@@ -23,6 +23,7 @@
 /ui/src/styles/tailwind.css
 
 /db.sqlite3
+/app.db
 /static
 /.env
 /.env.*

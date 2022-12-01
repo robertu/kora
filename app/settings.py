@@ -1,5 +1,12 @@
 from datetime import timedelta
 from pathlib import Path
+import environ
+import os
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, True)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent
@@ -30,12 +37,9 @@ INSTALLED_APPS = [
     # Third party
     'corsheaders',
     
-    
-    # # Custom Apps
+    # Custom Apps
     "app.blog",
     "app.user",
-    # "app.contact",
-
     'django_extensions',
 ]
 
@@ -82,6 +86,9 @@ DATABASES = {
     }
 }
 
+
+DATABASES = {'default': env.db("DATABASE_URL", default="sqlite:////app/app.db")}
+DATABASES['default']["ATOMIC_REQUESTS"] = True
 
 # Password validation
 
@@ -145,8 +152,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    "https://kora.1kb.pl",
 ]
 
 AUTHENTICATION_BACKENDS = (
