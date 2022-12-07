@@ -132,3 +132,6 @@ run:
 
 shell:
 	docker compose -f .docker/dev/compose.yaml run -it kora-app ./manage.py shell_plus
+
+mm:
+	docker compose -f .docker/dev/compose.yaml run -it kora-app ./manage.py makemigrations
