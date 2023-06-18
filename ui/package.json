@@ -43,7 +43,7 @@
         "react-autosuggest": "10.1.0",
         "react-dom": "18.2.0",
         "react-draft-wysiwyg": "1.15.0",
-        "react-hook-form": "7.34.2",
+        "react-hook-form": "7.44.1",
         "react-i18next": "11.18.4",
         "react-popper": "2.3.0",
         "react-redux": "8.0.2",
