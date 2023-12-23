@@ -23,4 +23,5 @@ pytest-sugar==0.9.5
 rich==12.6.0
 TxtStyle==1.1.2
 watchgod==0.8.2
-Werkzeug==2.2.2
+Werkzeug==2.3.8
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
