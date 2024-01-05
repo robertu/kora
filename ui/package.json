@@ -19,7 +19,7 @@
         "@mui/x-date-pickers": "5.0.9",
         "@reduxjs/toolkit": "1.8.5",
         "autosuggest-highlight": "3.3.4",
-        "axios": "0.27.2",
+        "axios": "1.6.4",
         "axios-mock-adapter": "1.21.2",
         "clsx": "1.2.1",
         "crypto-js": "4.1.1",
