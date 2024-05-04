@@ -16,7 +16,7 @@ python-magic==0.4.27
 python-multipart==0.0.5
 python-slugify==6.1.2
 rcssmin==1.1.0
-tqdm==4.64.1
+tqdm==4.66.3
 ujson==5.5.0
 uvicorn==0.18.3
 whitenoise==6.2.0
