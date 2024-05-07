@@ -1,6 +1,6 @@
 -r base.txt
 
-black==22.10.0
+black==24.3.0
 coverage==6.5.0
 devtools==0.9.0
 django-coverage-plugin==2.0.3
@@ -23,4 +23,6 @@ pytest-sugar==0.9.5
 rich==12.6.0
 TxtStyle==1.1.2
 watchgod==0.8.2
-Werkzeug==2.2.2
+Werkzeug==3.0.3
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
+sqlparse>=0.5.0 # not directly required, pinned by Snyk to avoid a vulnerability
