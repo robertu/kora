@@ -14,7 +14,7 @@
         "@mui/material": "5.10.15",
         "@mui/styles": "5.10.15",
         "@mui/system": "5.10.15",
-        "@mui/utils": "5.9.3",
+        "@mui/utils": "5.15.20",
         "@mui/x-data-grid": "5.15.2",
         "@mui/x-date-pickers": "5.0.9",
         "@reduxjs/toolkit": "1.8.5",
