@@ -24,3 +24,4 @@ rich==12.6.0
 TxtStyle==1.1.2
 watchgod==0.8.2
 Werkzeug==2.2.2
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
